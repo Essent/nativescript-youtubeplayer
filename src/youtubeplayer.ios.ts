@@ -81,10 +81,8 @@ export class YoutubePlayer extends YoutubePlayerBase {
   }
 
   public destroy(): void {
-    const center = utils.ios.getter(
-      NSNotificationCenter,
-      NSNotificationCenter.defaultCenter
-    );
+    const center = NSNotificationCenter.defaultCenter;
+    
     application.ios.removeNotificationObserver(
       this._observer,
       UIWindowDidResignKeyNotification

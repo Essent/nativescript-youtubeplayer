@@ -1,6 +1,6 @@
-<Page 
-  xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page" 
-  xmlns:ui="nativescript-youtubeplayer">
+<Page
+  xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
+  xmlns:ui="@essent/nativescript-youtube-player">
   <ScrollView>
     <StackLayout height="100%" class="p-20" id="container">
       <ui:YoutubePlayer height="50%" id="player" options="{{options}}" apiKey="AIzaSyAUm14Rg9vH_Zv9X5BeWQ8UyMMypEq4htA" src="{{src}}" backgroundColor="gray" />

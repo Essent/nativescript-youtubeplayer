@@ -1,34 +1,27 @@
 {
-    "name": "nativescript-youtubeplayer",
-    "version": "2.2.6",
+    "name": "@essent/nativescript-youtube-player",
+    "version": "3.0.0",
     "description": "YoutubePlayer for Nativescript",
     "main": "youtubeplayer",
     "typings": "index.d.ts",
     "nativescript": {
         "platforms": {
-            "android": "3.0.0",
-            "ios": "3.0.0"
+            "android": "6.0.0",
+            "ios": "6.0.1"
         }
     },
     "scripts": {
-        "tsc": "tsc -skipLibCheck",
-        "build": "npm i && tsc",
-        "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
-        "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
-        "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/+(node_modules|typings)/**\"",
-        "plugin.link": "npm link && cd ../demo && npm link nativescript-youtubeplayer && cd ../demo-ng && npm link nativescript-youtubeplayer && cd ../src",
-        "plugin.tscwatch": "npm run tsc -- -w",
-        "plugin.prepare": "npm run tsc && cd ../demo && tns plugin remove nativescript-youtubeplayer && tns plugin add ../src",
-        "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
-        "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
-        "demo.ng.ios": "npm i && npm run tsc && cd ../demo-ng && tns run ios --syncAllFiles",
-        "demo.ng.android": "npm i && npm run tsc && cd ../demo-ng && tns run android --syncAllFiles",
-        "demo.ng.webpack.android": "npm i && npm run tsc && cd ../demo-ng && npm run start-android-bundle",
-        "demo.ng.webpack.ios": "npm i && npm run tsc && cd ../demo-ng && npm run start-ios-bundle",
-        "clean": "rm -rf node_modules && cd ../demo && rm -rf hooks node_modules platforms && cd ../src && npm run plugin.link",
-        "ngc": "ngc --project tsconfig.aot.json",
-        "prepublish": "npm run ngc",
-        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/+(node_modules|typings|*.d.ts)/**'"
+        "tsc": "npm i && tsc",
+        "build": "npm run tsc && npm run build.native",
+        "build.native": "node scripts/build-native.js",
+        "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
+        "prepack": "npm run build.native",
+        "demo.ios": "npm i && cd ../demo && tns run ios",
+        "demo.android": "npm i && cd ../demo && tns run android",
+        "demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
+        "plugin.prepare": "npm run build && cd ../demo && tns plugin remove @essent/nativescript-youtube-player && tns plugin add ../src",
+        "clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i"
     },
     "keywords": [
         "NativeScript",
@@ -39,37 +32,20 @@
         "player",
         "video"
     ],
-    "author": {
-        "name": "Osei Fortune",
-        "email": "fortune.osei@yahoo.com"
-    },
     "bugs": {
-        "url": "https://github.com/triniwiz/nativescript-youtubeplayer/issues"
+        "url": "https://github.com/Essent/nativescript-youtubeplayer/issues"
     },
     "license": "Apache-2.0",
-    "homepage": "https://github.com/triniwiz/nativescript-youtubeplayer",
-    "readmeFilename": "README.md",
-    "peerDependencies": {
-        "tns-core-modules": "^3.0.0"
-    },
+    "homepage": "https://github.com/Essent/nativescript-youtubeplayer",
     "devDependencies": {
-        "@angular/core": "4.4.1",
-        "@angular/common": "4.4.1",
-        "@angular/forms": "4.4.1",
-        "@angular/http": "4.4.1",
-        "@angular/platform-browser": "4.4.1",
-        "@angular/compiler": "4.4.1",
-        "@angular/compiler-cli": "4.4.1",
-        "@angular/router": "4.4.1",
-        "nativescript-angular": "4.4.1",
+        "tns-core-modules": "^6.0.0",
+        "tns-platform-declarations": "^6.0.0",
+        "typescript": "~3.4.5",
         "prompt": "^1.0.0",
-        "rimraf": "^2.5.0",
-        "rxjs": "^5.0.1",
-        "tns-core-modules": "^3.1.0",
-        "tns-platform-declarations": "^3.1.0",
-        "tslint": "~5.4.3",
-        "typescript": "~2.3.0",
-        "zone.js": "~0.8.12"
+        "rimraf": "^2.6.3",
+        "tslint": "^5.12.1",
+        "semver": "^5.6.0"
     },
+    "dependencies": {},
     "bootstrapper": "nativescript-plugin-seed"
 }
