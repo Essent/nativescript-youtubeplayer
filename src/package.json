@@ -1,5 +1,5 @@
 {
-    "name": "nativescript-youtubeplayer",
+    "name": "@essent/nativescript-youtube-player",
     "version": "3.0.0",
     "description": "YoutubePlayer for Nativescript",
     "main": "youtubeplayer",
@@ -20,7 +20,7 @@
         "demo.ios": "npm i && cd ../demo && tns run ios",
         "demo.android": "npm i && cd ../demo && tns run android",
         "demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
-        "plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-youtubeplayer && tns plugin add ../src",
+        "plugin.prepare": "npm run build && cd ../demo && tns plugin remove @essent/nativescript-youtube-player && tns plugin add ../src",
         "clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i"
     },
     "keywords": [
@@ -32,15 +32,11 @@
         "player",
         "video"
     ],
-    "author": {
-        "name": "Osei Fortune",
-        "email": "fortune.osei@yahoo.com"
-    },
     "bugs": {
-        "url": "https://github.com/triniwiz/nativescript-youtubeplayer/issues"
+        "url": "https://github.com/Essent/nativescript-youtubeplayer/issues"
     },
     "license": "Apache-2.0",
-    "homepage": "https://github.com/triniwiz/nativescript-youtubeplayer",
+    "homepage": "https://github.com/Essent/nativescript-youtubeplayer",
     "devDependencies": {
         "tns-core-modules": "^6.0.0",
         "tns-platform-declarations": "^6.0.0",

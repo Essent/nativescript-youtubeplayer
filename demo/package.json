@@ -9,8 +9,8 @@
     }
   },
   "dependencies": {
+    "@essent/nativescript-youtube-player": "file:../src",
     "@nativescript/theme": "~2.3.3",
-    "nativescript-youtubeplayer": "file:../src",
     "tns-core-modules": "~6.5.0"
   },
   "devDependencies": {
