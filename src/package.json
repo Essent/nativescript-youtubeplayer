@@ -1,6 +1,6 @@
 {
     "name": "@essent/nativescript-youtube-player",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "YoutubePlayer for Nativescript",
     "main": "youtubeplayer",
     "typings": "index.d.ts",
@@ -38,6 +38,8 @@
     "license": "Apache-2.0",
     "homepage": "https://github.com/Essent/nativescript-youtubeplayer",
     "devDependencies": {
+        "@angular/core": "^8.0.0",
+        "nativescript-angular": "^8.0.0",
         "tns-core-modules": "^6.0.0",
         "tns-platform-declarations": "^6.0.0",
         "typescript": "~3.4.5",
