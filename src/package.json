@@ -1,6 +1,6 @@
 {
     "name": "@essent/nativescript-youtube-player",
-    "version": "3.0.3",
+    "version": "3.0.4",
     "description": "YoutubePlayer for Nativescript",
     "main": "youtubeplayer",
     "typings": "index.d.ts",
